@@ -12,18 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_PACKAGES += \
-    qcrilmsgtunnel \
-    CellBroadcastReceiver \
-    OmaDmclient \
-    shutdownlistener \
-    SprintHiddenMenu \
-    TimeService \
-    UpdateSetting
+# Broadcom blob(s) necessary for Hammerhead hardware
+PRODUCT_COPY_FILES := \
+    vendor/lge/hammerhead/broadcom/hammerhead/proprietary/bcm2079x-b5_firmware.ncd:system/vendor/firmware/bcm2079x-b5_firmware.ncd:broadcom \
+    vendor/lge/hammerhead/broadcom/hammerhead/proprietary/bcm2079x-b5_pre_firmware.ncd:system/vendor/firmware/bcm2079x-b5_pre_firmware.ncd:broadcom \
+    vendor/lge/hammerhead/broadcom/hammerhead/proprietary/bcm4335c0.hcd:system/vendor/firmware/bcm4335c0.hcd:broadcom \
 
-LOCAL_STEM := hammerhead/device-partial.mk
-
-$(call inherit-product-if-exists, vendor/lge/hammerhead/broadcom/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/lge/hammerhead/lge/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/lge/hammerhead/qcom/$(LOCAL_STEM))
-$(call inherit-product-if-exists, vendor/lge/hammerhead/proprietary/$(LOCAL_STEM))
